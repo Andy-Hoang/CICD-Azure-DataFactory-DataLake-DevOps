@@ -2,7 +2,9 @@
 
 This project demonstrates a CI/CD pipeline for automating the deployment of Azure Data Factory and Data Lake using ARM templates in Azure DevOps. It also includes a typical real-life scenario for handling hotfixes in Production, ensuring efficient and reliable updates.
 
-![OverviewProcess](../assets/0.OverViewProcess.jpg)
+![OverviewProcess](assets/0.OverViewProcess.png)
+
+![GitDiagram](assets/0.GitDiagram.png)
 
 ## A Typical Flow
 The pipeline follows industry-standard practices for version control and deployment:
@@ -29,7 +31,7 @@ More details about the typical flow demo can be found in [demo-typical-flow-note
 3. We still want to keep **`feat2`** in `main` for later review and deployment.  
 
 ### Solution:
-![HotfixSteps](../assets/0.GeneralHotfixSteps.jpg)
+![HotfixSteps](assets/0.GeneralHotfixSteps.png)
 
 1. **Create a hotfix branch** from the current `PROD` version.  
    - This branch reflects the exact state of `PROD`, **excluding `feat2`**.  
