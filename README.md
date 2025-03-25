@@ -2,6 +2,8 @@
 
 This project demonstrates a CI/CD pipeline for automating the deployment of Azure Data Factory and Data Lake using ARM templates in Azure DevOps. It also includes a typical real-life scenario for handling hotfixes in Production, ensuring efficient and reliable updates.
 
+The [Azure enterprise templates](https://github.com/MarczakIO/azure-enterprise-templates) provided by Adam Marczak. 
+
 ![OverviewProcess](assets/0.OverViewProcess.png)
 
 ![GitDiagram](assets/0.GitDiagram.png)
@@ -18,7 +20,9 @@ The pipeline follows industry-standard practices for version control and deploym
 - **Continuous Deployment (CD):**  
   The pipeline deploys to the Dev environment initially, and after successful review and approval, the deployment proceeds to the Prod environment. To simplify the process, the Test environment is excluded. 
 
-More details about the typical flow demo can be found in [demo-typical-flow-note](../notes/demo-typical-flow-note.md) 
+![AzureDevopsPipelineStages](assets/0.AzureDevopsPipelineStages.png)
+
+More details about the typical flow demo can be found in [demo-typical-flow-note](/notes/2.demo-typical-flow-note.md) 
 
 
 ## Hotfix Flow
@@ -45,4 +49,14 @@ More details about the typical flow demo can be found in [demo-typical-flow-note
 
 This approach ensures that urgent fixes are deployed independently while keeping ongoing feature work in sync with `main`.
 
-More details about the hotfix flow can be found in [hotfix-flow-note](../notes/hotfix-flow-note.md) 
+More details about the hotfix flow can be found in [hotfix-flow-note](/notes/3.hotfix-flow-note.md) 
+
+
+## Services Used
+- Azure Data Factory: Orchestrates data workflows and pipeline automation. 
+- Azure Data Lake: Stores and manages large-scale data, linked with Data Factory.  
+- Entra ID: Manages secure access and authentication. 
+- Azure DevOps: Facilitates CI/CD, version control, and deployment automation.
+
+Initial setup can be found in [setup-note](/notes/1.setup-note.md)
+
