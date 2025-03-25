@@ -1,0 +1,45 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+
+- stage: BUILD
+  jobs:
+  - template: adf-build-job.yml
+    parameters:
+      subscriptionId: 2bc854e5-<REDACTED>
+      resourceGroupName: dev-adf-cicd-rg
+      dataFactoryName: dev-adf-cicd-df
+      repoRootFolder: /data-factory/
+      packageJsonFolder: /devops/
+
+- stage: DEV
+  variables:
+  - group: DEV
+  jobs:
+  - template: adf-deploy-job.yml
+    parameters:
+      environmentName: DEV
+      subscriptionId: 2bc854e5-<REDACTED>
+      resourceGroupName: dev-adf-cicd-rg
+      dataFactoryName: dev-adf-cicd-df
+      serviceConnectionName: dev-adf-cicd-conn
+      overrideParameters: >
+        -ls_adls_devadfcicd25dl_properties_typeProperties_url $(linkedservice_adf_datalake_url)
+
+- stage: PROD
+  variables:
+  - group: PROD
+  jobs:
+  - template: adf-deploy-job.yml
+    parameters:
+      environmentName: PROD
+      subscriptionId: 2bc854e5-<REDACTED>
+      resourceGroupName: prod-adf-cicd-rg
+      dataFactoryName: prod-adf-cicd-df
+      serviceConnectionName: prod-adf-cicd-conn
+      overrideParameters: >
+        -ls_adls_devadfcicd25dl_properties_typeProperties_url $(linkedservice_adf_datalake_url)

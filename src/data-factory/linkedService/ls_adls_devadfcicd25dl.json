@@ -1,0 +1,11 @@
+{
+	"name": "ls_adls_devadfcicd25dl",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://devadfcicd25dl.dfs.core.windows.net/"
+		}
+	}
+}

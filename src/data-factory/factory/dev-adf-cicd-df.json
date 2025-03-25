@@ -1,0 +1,9 @@
+{
+	"name": "dev-adf-cicd-df",
+	"location": "australiaeast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "39c97e83-<REDACTED>",
+		"tenantId": "f13ac877-<REDACTED>"
+	}
+}
